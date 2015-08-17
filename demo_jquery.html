@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <script type="text/javascript" src="../lib/jquery-1.9.0.js"></script>
+    </head>
+    <body>
+        <input type="text" id="query_date"></input>
+        <input type="button" id="do_query" value="get remote data"></input>
+        <div id="remote_content"></div>
+        <script type="text/javascript">
+$(document).ready(function(){
+$('#do_query').click(function(){
+                    $.post('data_table.php', {date:$('#query_date').val()}, function(d){
+                        $('#remote_content').html(d)
+                    })
+                 })
+});//ready
+        </script>
+    </body>
+</html>
